@@ -1,0 +1,21 @@
+n=int(input())
+l=list(map(int,input().split()))
+s=[]
+r=[]
+for ele in reversed(l):
+    if(len(s)==0):
+        r.append(-1)
+    elif(len(s)>0 and s[len(s)-1]>ele):
+        r.append(s[len(s)-1])
+# print(r)
+    elif(len(s)>0 and s[len(s)-1]<=ele):
+        while(len(s)>0 and s[len(s)-1]<=ele):
+            s.pop()
+        if(len(s)==0):
+            r.append(-1)
+        else:
+            r.append(s[len(s)-1])
+    s.append(ele)
+for ele in reversed(r):
+    print(ele,end=" ")
+            
