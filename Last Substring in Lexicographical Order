@@ -1,0 +1,20 @@
+class Solution {
+public:
+    string lastSubstring(string s) 
+    {
+          int pointer1=0,pointer2=1,currletter=0;
+        while(pointer2+currletter<s.size()){
+            if(s[pointer1+currletter] == s[pointer2+currletter]){
+                currletter++;
+            } else if(s[pointer1+currletter] < s[pointer2+currletter]){
+                pointer1 = pointer2;
+                pointer2++;
+                currletter=0;
+            } else {
+                pointer2+=currletter+1;
+                currletter=0;
+            }
+        }
+        return s.substr(pointer1);
+    }
+};
