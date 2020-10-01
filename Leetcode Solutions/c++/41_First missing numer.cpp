@@ -23,3 +23,19 @@ public:
         
     }
 };
+
+
+/*
+        vector<int> temp=nums;
+        for(int i=0;i<nums.size();i++)
+        {
+           if(temp[i]<=0||temp[i]>n) continue;
+           else nums[temp[i]-1]=INT_MIN;
+        }
+        for(int i=0;i<n;i++)
+        {
+            //cout<<nums[i]<<" ";
+           if(nums[i]!=INT_MIN) return i+1;
+        }
+        return n==0?1:n+1;
+        */
