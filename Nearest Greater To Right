@@ -1,21 +1,29 @@
-n=int(input())
-l=list(map(int,input().split()))
-s=[]
-r=[]
-for ele in reversed(l):
-    if(len(s)==0):
-        r.append(-1)
-    elif(len(s)>0 and s[len(s)-1]>ele):
-        r.append(s[len(s)-1])
-# print(r)
-    elif(len(s)>0 and s[len(s)-1]<=ele):
-        while(len(s)>0 and s[len(s)-1]<=ele):
-            s.pop()
-        if(len(s)==0):
-            r.append(-1)
-        else:
-            r.append(s[len(s)-1])
-    s.append(ele)
-for ele in reversed(r):
-    print(ele,end=" ")
-            
+class Solution {
+public:
+    vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
+        stack<int> s;
+        unordered_map<int,int> m;
+      for(int i=nums2.size()-1;i>=0;i--){
+          
+          if(s.empty())
+          m[nums2[i]]=-1;
+          else if(!s.empty()&&s.top()>nums2[i])
+          m[nums2[i]]=s.top();
+          else if(!s.empty()&&s.top()<=nums2[i])
+          {
+              while(!s.empty()&&s.top()<=nums2[i])
+                  s.pop();
+              if(s.empty())
+              m[nums2[i]]=-1;
+              else
+                  m[nums2[i]]=s.top();
+                  
+          }s.push(nums2[i]);
+              
+    }
+        vector<int> v;
+        for(auto x:nums1)
+            v.push_back(m[x]);
+        return v;}
+        
+};
