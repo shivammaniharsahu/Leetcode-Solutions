@@ -2,9 +2,10 @@
 using namespace std;
 int dist[1001];
 vector<pair<int,int> >ar[1001];
+//a vector of pairs .
 void BFS(int start)
 {
-	deque<int> q;
+	deque<int> q; //insertion and deletion on both ends.
 	q.push_front(start);
 	dist[start]=0;
 	while(!q.empty())
@@ -43,5 +44,5 @@ int main()
 		ar[a].push_back(make_pair(b,wt));
 		ar[b].push_back(make_pair(a,wt));
 	}
-	BFS(0);
+	BFS(0);//source is taken 0.
 }
